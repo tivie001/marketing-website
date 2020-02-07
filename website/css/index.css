@@ -171,7 +171,6 @@ html {
 	color: white;
 	padding: 14px 16px;
 	background-color: inherit;
-	font: inherit;
 	margin: 0;
 }
 
@@ -185,7 +184,7 @@ html {
 	background-color: #f9f9f9;
 	width: 100%;
 	left: 0;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
 	z-index: 1;
 	overflow: scroll;
 	height: 500px;
@@ -220,19 +219,12 @@ html {
 	grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
 	grid-gap: 2rem;
 }
-
 .gallery-nav {
 	flex-wrap: wrap;
 	margin: -1rem -1rem;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
 	grid-gap: 2rem;
-}
-.gallery-item-nav {
-	flex: 1 0 24rem;
-	margin: 1rem;
-	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
-	overflow: hidden;
 }
 .new-release-section {
 	display: grid;
@@ -549,7 +541,7 @@ button[type=submit] {
 	#footer {
 		display: flex;
 		flex-direction: column;
-		margin: 0 auto;
+		justify-content: center;
 		padding-top: 2rem;
 		max-width: 500px;
 	}
@@ -612,6 +604,12 @@ button[type=submit] {
 	.gallery {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+	}
+	.gallery-headers {
+		grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+	}
+	.gallery-nav {
+		grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
 	}
 	.search-container {
 		text-align: left;
