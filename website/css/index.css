@@ -31,6 +31,9 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+h1 {font-size: 4rem;}
+
+h1,h2,h3,h4 {margin: 20px 0}
 ol, ul {
 	list-style: none;
 }
@@ -47,7 +50,6 @@ table {
 	border-spacing: 0;
 }
 
-/* Start your code here: */
 html {
 	font-size: 62.5%;
 }
@@ -107,9 +109,16 @@ html {
 	height: 75px;
 	width: 75px;
 }
-#mainNav {
+#mainNavWrapper {
 	background-color: #FAF6F0;
+
+}
+#mainNav {
 	font-family: Avenir;
+	display: flex;
+	flex-direction: row;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 #mainNav nav {
 	max-width: 1200px;
@@ -125,7 +134,9 @@ html {
 	padding: 0;
 	overflow: hidden;
 }
-
+.logoClass {
+	margin: 2rem;
+}
 #mainNav li {
 	float: left;
 	margin: 2rem;
@@ -234,79 +245,17 @@ html {
 	margin-bottom: 3rem;
 }
 
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-	.column {
-		width: 100%;
-		height: auto;
-	}
-}
-
 
 /* ---------- MAIN BODY ----------*/
-h1 {font-size: 4rem;}
-
-h1,h2,h3,h4 {margin: 20px 0}
-
-.container {
-	max-width: 1200px;
-	margin: 0 auto;
-	font-size: 2rem;
-}
 #imageContainer {
-	height: 100vh;
+	height: 100%;
 	background-size: cover;
 	display: flex;
 	flex-direction: column;
 	position: relative;
 }
-.image-overlay span {
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.4);
-}
-.image-background {
-	background-image: url(../assets/hero-image.jpg);
-	width: 100%;
-	height: 300px;
-	background-size: contain;
-	margin: 0 auto 50px;
-}
-.test {
-	color: black;
-	font-size: 3rem;
-}
-#imageTextContainer {
-	position: absolute;
-	z-index:  999;
-	margin: 0 auto;
-	left: 0;
-	right: 0;
-	text-align: center;
-	top: 20%;
-	height: 30%;
-	color: white;
-	background-color: rgba(51, 51, 51, 0.92);
-	width: 40%;
-}
-#imageTextContainer h1 {
-	font-family: "Malayalam MN";
-	margin-top: 4rem;
-	margin-bottom: 0;
-	font-size: 6rem;
-}
-#imageTextContainer span {
-	font-family: "Avenir";
-	font-size: 2rem;
-	display: flex;
-	justify-content: center;
-	align-items: center
-}
-#imageTextContainer span h4 {
-	margin: 1rem 1.5rem 0 1.5rem;
-}
 #browseBtn {
-	margin-top: 3rem;
+	margin-top: 1.5rem;
 	padding: 15px;
 	background-color: orangered;
 	border: none;
@@ -314,28 +263,89 @@ h1,h2,h3,h4 {margin: 20px 0}
 	color: white;
 	font-size: 13px;
 	font-weight: bold;
+	cursor: pointer;
+}
+#browseBtn:hover {
+	margin-top: 1.5rem;
+	padding: 15px;
+	background-color: white;
+	border: 2px solid orangered;
+	border-radius: 3px;
+	color: orangered;
+	font-size: 13px;
+	font-weight: bold;
+	cursor: pointer;
+}
+#heroImage {
+	opacity: .9;
+}
+.image-text-container {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+.image-overlay{
+	position: relative;
+	display: block;
+}
+.image-overlay-text {
+	position: absolute;
+	top: 15%;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 500px;
+	height: 250px;
+	text-align: center;
+	background-color: #333;
+	transition: opacity 0.6s;
+	vertical-align:middle;
+	margin: 0 auto;
+	color: white;
+	border: 5px solid black;
+}
+.image-overlay-text span {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-family: Avenir;
+	width: 70%;
+	margin: 0 auto;
+}
+.image-overlay-text h1{
+	color: white;
+	margin: 11% 0 0 0;
+	font-size: 5rem;
+	font-family: "Montserrat",Arial, sans-serif;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	font-size: 2rem;
 }
 .center-aligned {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-
-#main-content {
-	/*display: flex;*/
-	/*flex-direction: row;*/
-	/*justify-content: space-between;*/
+#mainContent {
+	margin-top: 5rem;
 }
-#main-content h1 {
+#mainContent h1 {
 	font-family: 'Montserrat', sans-serif;
 }
-#main-content h2 {
+#mainContent h2 {
 	font-family: 'Montserrat', sans-serif;
 	margin: 3rem 0 3rem 0;
 	font-variant: small-caps;
 	font-size: 3rem;
 }
-#main-content h1 i {
+#mainContent h1 i {
 	font-size: 3.5rem;
 	margin-right: 2rem;
 	color: red;
@@ -349,9 +359,7 @@ h1,h2,h3,h4 {margin: 20px 0}
 	grid-gap: 2rem;
 }
 .gallery-item {
-	/* Minimum width of 24rem and grow to fit available space */
 	flex: 1 0 24rem;
-	/* Margin value should be half of grid-gap value as margins on flex items don't collapse */
 	margin: 1rem;
 	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
 	overflow: hidden;
@@ -411,6 +419,15 @@ h1,h2,h3,h4 {margin: 20px 0}
 	margin: 0 auto;
 	padding-top: 2rem;
 	max-width: 1200px;
+}
+@media screen and (max-width: 500px) {
+	#footer {
+		display: flex;
+		flex-direction: column;
+		margin: 0 auto;
+		padding-top: 2rem;
+		max-width: 500px;
+	}
 }
 #footer h2 {
 	font-size: 2rem;
@@ -527,4 +544,79 @@ button[type=submit] {
 		opacity:0;
 	}
 }
+
+@media screen and (max-width: 500px) {
+	#footer {
+		display: flex;
+		flex-direction: column;
+		margin: 0 auto;
+		padding-top: 2rem;
+		max-width: 500px;
+	}
+	#heroImage {
+		width: 100%;
+		height: 300px;
+	}
+	.image-overlay-text {
+		width: 300px;
+		height: 200px;
+	}
+	.image-overlay-text h1{
+		font-size: 4rem;
+	}
+	#mainContent, #footer {
+		padding: 0 7px 0 7px
+	}
+	#browseBtn {
+		margin-top: 1rem;
+	}
+	.image-overlay-text span {
+		width: 90%;
+		font-size: 16px;
+	}
+	#subNav nav {
+		display: flex;
+		flex-direction: column;
+	}
+	#subNav nav ul {
+		margin-bottom: 2rem;
+	}
+	#subNav nav p {
+		display: none;
+	}
+	#icons {
+		margin-bottom: 2rem;
+	}
+	.logoClass {
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		margin: 2rem 0 0 0;
+	}
+	#mainNav {
+		display: flex;
+		flex-direction: column;
+	}
+	#mainNav nav {
+		justify-content: center;
+	}
+	#mainNav nav ul {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.dropdown-content {
+		width: 100%;
+		height: auto;
+	}
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+	}
+	.search-container {
+		text-align: left;
+		float: left;
+	}
+}
+
 
